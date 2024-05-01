@@ -1,2 +1,1 @@
-FROM quay.io/frrouting/frr
-
+FROM frrouting/frr
