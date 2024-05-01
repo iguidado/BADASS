@@ -21,6 +21,15 @@ pipx install gns3-gui
 pipx inject gns3-gui gns3-server PyQt5
 pipx ensurepath
 
+# Install Ubridge
+sudo apt install git build-essential pcaputils  libpcap-dev
+git clone https://github.com/GNS3/ubridge.git
+cd ubridge
+make
+sudo make install
+cd ..
+rm -rf ubridge
+
 # Install dynamips
 sudo apt install libelf-dev libpcap-dev cmake -y
 git clone https://github.com/GNS3/dynamips.git
