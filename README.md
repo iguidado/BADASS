@@ -6,8 +6,6 @@
 
 - [ ] Install and Configure GNS3
 
-- [ ] Install and configure GNS3
-
 - [ ] BGPD active and configured
 
 - [ ] OSPFD active and configured
@@ -23,8 +21,6 @@
 - [ ] Use a VXLAN with an ID of 10
 
 - [ ] Setup a bridge named : br0
-
-- [ ] 
 
 ### P3 : Discovering BGP with EVPN
 
