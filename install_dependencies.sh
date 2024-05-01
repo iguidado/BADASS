@@ -21,3 +21,18 @@ pipx install gns3-server
 pipx install gns3-gui
 pipx inject gns3-gui gns3-server PyQt5
 pipx ensurepath
+
+# Install dynamips
+sudo apt install libelf-dev libpcap-dev cmake
+git clone https://github.com/GNS3/dynamips.git
+cd dynamips
+mkdir build
+cd build
+cmake ..
+sudo make install
+
+# Enable docker support for GNS3
+for i in ubridge docker wireshark; do
+ sudo usermod -aG $i $USER
+done
+
