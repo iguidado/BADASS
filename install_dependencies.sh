@@ -40,6 +40,9 @@ cd build
 cmake ..
 sudo make install
 
+#install xterm to use console from GNS3
+sudo apt install gns3 -y
+
 # install wireshark
 sudo apt install wireshark -y
 
@@ -49,4 +52,5 @@ for i in ubridge docker wireshark; do
  sudo usermod -aG $i $USER
 done
 
+# Cleaning
 rm -rf ./dynamips
