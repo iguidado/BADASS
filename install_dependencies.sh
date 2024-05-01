@@ -17,6 +17,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # Install GNS3
 sudo apt update
 sudo apt install python3 python3-pip pipx python3-pyqt5 python3-pyqt5.qtwebsockets python3-pyqt5.qtsvg qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst software-properties-common ca-certificates curl gnupg2 
+sudo apt install busybox-static
 pipx install gns3-server
 pipx install gns3-gui
 pipx inject gns3-gui gns3-server PyQt5
@@ -33,6 +34,7 @@ sudo make install
 
 # install wireshark
 sudo apt install wireshark -y
+
 
 # Enable docker support for GNS3
 for i in ubridge docker wireshark; do
