@@ -1,4 +1,4 @@
-cd router
-docker build . -t router
-cd ../host
-docker build . -t host
+#!/bin/sh
+
+docker build ./router -t router
+docker build ./host -t host

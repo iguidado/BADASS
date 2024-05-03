@@ -1,5 +1,11 @@
 FROM alpine
 
-COPY conf_host_1.sh conf_host_1.sh
-COPY conf_host_2.sh conf_host_2.sh
+ARG IP_A
 
+ENV IP=$IP_A
+
+COPY conf_host.sh .
+
+RUN chmod +x conf_host.sh
+
+ENTRYPOINT ./conf_host.sh ${IP}
