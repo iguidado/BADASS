@@ -36,3 +36,44 @@ so now each frame received on eth1 will go through the bridge br0
 We have to bring vxlan10 to an upstate
 
 ```ip link set dev vxlan10 up```
+
+## Router 2
+
+Same we will create a `br0`
+
+```ip link add br0 type bridge```
+
+Set the bridge to an upstate
+
+```ip link set dev br0 up```
+
+We are gonna give an IP address to our router interfaces (eth0)
+
+```ip addr add 10.1.1.2/24 dev eth0```
+
+Next we are gonna create the VXLAN interface
+
+```ip link add name vxlan10 type vxlan id 10 dev eth0 remote 10.1.1.1 local 10.1.1.2 dstport 4789```
+
+Give an ip address to the device
+
+```ip addr add 20.1.1.2/24 dev vxlan10```
+
+Connect our vxlan to our bridge (br0)
+
+```brctl addif br0 eth1```  
+```brctl addif br0 vxlan10```
+
+set the vxlan to an upstate
+
+```ip link set dev vxlan10 up```
+
+## Hosts
+
+Give ip address to the host machine
+
+```ip addr add 30.1.1.1/24 dev eth1```
+
+on Host 2
+
+```ip addr add 30.1.1.2/24 dev eth1```
