@@ -23,6 +23,13 @@ Next we are gonna create the VXLAN interface, a VXLAN interface is called a VXLA
 ```ip link add name vxlan10 type vxlan id 10 dev eth0 remote 10.1.1.2 local 10.1.1.1 dstport 4789```
 
 Create a device named vxlan10 of type vxlan with identifier 10 on adapter eth0 with a remote ip of 10.1.1.2 (?) and local ip of 10.1.1.1 (ip of eth0?) with the default port of vxlan 4789  
+
+#### Multicast option
+
+We can set the VXLAN to multicast to a group of ip with this modification
+
+```ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789```
+
 We are gonna give an ip address to the vxlan newly created
 
 ```ip addr add 20.1.1.1/24 dev vxlan10```
