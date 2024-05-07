@@ -7,9 +7,10 @@ Network connecting these computer should be a Vxlan.
 ...
 
 
+
 ## Ressources
 
-> Project is based of these 3 videos []
+> Project is based of these 3 videos: [Part1](https://www.youtube.com/watch?v=D4nk5VSUelg), [Part2](https://www.youtube.com/watch?v=u1ka-S6F9UI), [Part3](https://www.youtube.com/watch?v=Ek7kFDwUJBM)
 
 
 ## To do
