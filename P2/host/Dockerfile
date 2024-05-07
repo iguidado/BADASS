@@ -1,8 +1,6 @@
 FROM alpine
 
-ARG IP_A
-
-ENV IP=$IP_A
+ENV IP=30.1.1.1
 
 COPY conf_host.sh .
 
