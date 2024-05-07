@@ -16,17 +16,17 @@ ip link set dev vxlan10 up
 brctl addif br0 vxlan10
 brctl addif br0 ${HOST_DEV}
 
- cat <<- EOF | vtysh
+cat <<- EOF > /etc/frr/frr.conf
+conf t
  hostname router_${USER}_${HOST_NBR}
  !
  interface ${ROUTER_DEV}
   ip address ${IP}/30
   ip ospf area 0
-
  !
  interface lo
  	ip address ${LO}/32
- 	ip ospf area
+ 	ip ospf area 0
  !
  router bgp
  neighbor ${RR_IP} remote-as 1
@@ -38,6 +38,9 @@ brctl addif br0 ${HOST_DEV}
  exit-address-family
  !
  router ospf
- EOF
-	
-exec /bin/tini -- /usr/lib/frr/docker-start
+ !
+EOF
+
+echo "conf_leaf done" > proof
+
+exec /sbin/tini -- /usr/lib/frr/docker-start

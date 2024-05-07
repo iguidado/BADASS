@@ -1,6 +1,4 @@
-
-
-cat <<- eof | vtysh
+cat <<- eof > /etc/frr/frr.conf
 conf t
 hostname routeur_${USER}_1
 !
@@ -19,7 +17,7 @@ ip address 1.1.1.1/30
 router bgp 1
  neighbor ibgp peer-group
  neighbor ibgp remote-as 1
- neighbor ibgp updqte-source lo
+ neighbor ibgp update-source lo
  bgp listen range 1.1.1.0/29 peer-group ibgp
 !
  address-family l2vpn evpn
@@ -28,8 +26,12 @@ router bgp 1
 exit-address-family
 !
 router ospf
- network 0.0.0.0/0 area0
+ network 0.0.0.0/0 area 0
 !
 line vty
 !
 eof
+
+echo "conf_spine called" > proof
+
+exec /sbin/tini -- /usr/lib/frr/docker-start

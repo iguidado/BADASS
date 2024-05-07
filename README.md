@@ -15,6 +15,7 @@ Network connecting these computer should be a Vxlan.
 
 ## To do
 
+
 ### Hiatus
 
 - [ ] Vagrantfile not working :c
@@ -37,7 +38,12 @@ Network connecting these computer should be a Vxlan.
 
 ### P3 : Discovering BGP with EVPN
 
-- [ ]  BGP EVPN (rfc 7432) without using MPLS
+
+- [ ] Adapt script to hostname so we can launch the good configuration depending on it
+        we can source the good .env depending of leaf number and launch conf_leaf after it
+        or simply launch conf_spine if host is nb 1
+
+- [ ] BGP EVPN (rfc 7432) without using MPLS
 - [ ] VNI
 - [ ] Principle of the route reflection
 - [ ] use OSPF to simplify the evaluation
