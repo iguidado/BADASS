@@ -1,6 +1,6 @@
 SCRIPT=conf_leaf.sh
-IP=10.1.1.3
-LO=1.1.1.4
+IP=10.1.1.2
+LO=1.1.1.2
 RR_IP=1.1.1.1
 ROUTER_DEV=eth0
 HOST_DEV=eth1

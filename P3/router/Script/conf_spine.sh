@@ -1,5 +1,9 @@
+
+source /root/env/leaf_1
+
+env > test_env
+
 cat <<- eof > /etc/frr/frr.conf
-conf t
 hostname routeur_${USER}_1
 !
 interface eth0
@@ -18,7 +22,7 @@ router bgp 1
  neighbor ibgp peer-group
  neighbor ibgp remote-as 1
  neighbor ibgp update-source lo
- bgp listen range 1.1.1.0/29 peer-group ibgp
+ bgp listen range 1.1.1.0/24 peer-group ibgp
 !
  address-family l2vpn evpn
  neighbor ibgp activate
@@ -30,6 +34,7 @@ router ospf
 !
 line vty
 !
+exit
 eof
 
 echo "conf_spine called" > proof
