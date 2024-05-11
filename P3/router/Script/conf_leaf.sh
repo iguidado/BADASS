@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+
 
 HOST_NBR=$(hostname | rev | cut -d"-" -f1)
 ADVERTISE=
@@ -9,6 +9,7 @@ source /root/env/leaf_${HOST_NBR}
 env > test_env
 
 #if [ "${HOST_NBR}" != "3" ] ; then
+cat > net_script.sh <<- EOF
 	ip link add br0 type bridge
 
 	# Start device br0
@@ -24,10 +25,11 @@ env > test_env
 	brctl addif br0 vxlan10
 	brctl addif br0 ${HOST_DEV}
 #fi
+EOF
 
 
 cat <<- EOF > /etc/frr/frr.conf
- hostname router_${USER}_${HOST_NBR}
+ hostname router_${USER}-${HOST_NBR}
 no ipv6 forwarding
  !
  interface ${ROUTER_DEV}

@@ -1,8 +1,15 @@
+HOST_NBR=3
+
 SCRIPT=conf_leaf.sh
+
+USER=iguidado
+
 IP=10.1.1.6
+
 LO=1.1.1.3
+
 RR_IP=1.1.1.1
+
 ROUTER_DEV=eth1
 HOST_DEV=eth0
-USER=iguidado
-HOST_NBR=3
+
