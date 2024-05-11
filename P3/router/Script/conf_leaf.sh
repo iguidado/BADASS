@@ -8,8 +8,7 @@ source /root/env/leaf_${HOST_NBR}
 
 env > test_env
 
-#if [ "${HOST_NBR}" != "3" ] ; then
-cat > net_script.sh <<- EOF
+cat > /root/Script/net_script.sh <<- EOF
 	ip link add br0 type bridge
 
 	# Start device br0
@@ -28,7 +27,7 @@ cat > net_script.sh <<- EOF
 EOF
 
 
-cat <<- EOF > /etc/frr/frr.conf
+cat  > /etc/frr/frr.conf <<- EOF
  hostname router_${USER}-${HOST_NBR}
 no ipv6 forwarding
  !
@@ -53,6 +52,8 @@ no ipv6 forwarding
  !
 exit
 EOF
+
+bash /root/Script/net_script.sh
 
 echo "conf_leaf done" > proof
 
