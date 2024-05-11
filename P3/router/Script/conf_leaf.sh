@@ -43,7 +43,7 @@ no ipv6 forwarding
  neighbor ${RR_IP} remote-as 1
  neighbor ${RR_IP} update-source lo
  !
- address-family l2vp evpn 
+ address-family l2vpn evpn 
  neighbor ${RR_IP} activate 
  advertise-all-vni 
  exit-address-family
