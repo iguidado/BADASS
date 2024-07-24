@@ -32,7 +32,7 @@ Ce projet est séparé en trois partie:
 ### Instructions
 Clonez le repository :
 ```bash
-git clone https://github.com/tonnomdutilisateur/BADASS.git
+git clone https://github.com/iguidado/BADASS.git
 cd BADASS
 ```
 
